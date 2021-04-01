@@ -1,6 +1,6 @@
 /* global axios */
 var apiclient = (function () {
-    var url = "https://proyecto-arsw.herokuapp.com/usuarios/cliente";
+    var url = "proyecto-arsw.herokuapp.com/usuarios/cliente";
 
     function registrarCliente() {
 
