@@ -22,7 +22,7 @@ var apiclient = (function () {
                 "documento": documento})
                     .then(res => {
                         alert("Usuario registrado satisfactoriamente.");
-                        window.location.replace("https://proyecto-arsw.herokuapp.com/login.html");
+                        window.location.href="/login.html";
                     }
                     ); 
             }
