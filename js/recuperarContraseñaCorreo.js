@@ -1,13 +1,13 @@
 var apiRecuperarContraseña = (function () {
     function recuperarContraseña() {
-        var correo = document.getElementById("correo").value;
-        if (correo === "") {
+        var usuario = document.getElementById("usuario").value;
+        if (usuario === "") {
             alert("Debe llenar el campo solicitado.");
         } else {
-			window.location.href = "recuperarContraseña.html";
-			/*const options={
+			//window.location.href = "recuperarContraseña.html";
+			const options={
 				method: 'GET',
-                url: "https://proyecto-arsw.herokuapp.com/usuarios/" + correo
+                url: "https://proyecto-arsw.herokuapp.com/usuarios/send-email/"+ usuario
 			};
 			
             axios.request(options).then(function (response) {
@@ -17,7 +17,7 @@ var apiRecuperarContraseña = (function () {
                 }
             }).catch(function (error) {
                 console.error(error);
-            });*/
+            });
 
         }
     }
