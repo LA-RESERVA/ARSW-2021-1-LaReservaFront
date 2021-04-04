@@ -6,6 +6,7 @@ var apiLandingPropietarios = (function () {
         };
         axios.request(options).then(function (response) {
             response.data.map(function (record) {
+                retornarCanchasDeSede(record.nombre);
                 $("#sedes").append(
                     "<button type='button' class='btn btn-danger b1 d-block'>" + record.nombre + "</button>" +
                     "<button type='button' class='btn btn-danger dropdown-toggle dropdown-toggle-split'" +
@@ -31,8 +32,28 @@ var apiLandingPropietarios = (function () {
         });
 
     }
+    function retornarCanchasDeSede(nombre) {
+        const options = {
+            method: 'GET',
+            url: "https://proyecto-arsw.herokuapp.com/api/sedes/listar/"+nombre
+        };
+        axios.request(options).then(function (response) {
+            response.data.map(function (record) {
+                console.log(record);
+
+    
+    });
+
+
 
     return {
         busquedaCanchasClientesLista: busquedaCanchasClientesLista
     };
-})();
+
+}
+
+
+
+
+
+)();
