@@ -50,6 +50,7 @@ body{
     -o-background-size: cover;
     background-size: cover;
 }
-.b1 {width: 100%;
-    vertical-align: middle;
+.b1 {width: 50%;
+    height: 100%;
+    vertical-align: left;
 }
