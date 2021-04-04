@@ -7,10 +7,13 @@ var apiLogin = (function () {
         } else {
             const options = {
                 method: 'GET',
-                url: "https://proyecto-arsw.herokuapp.com/usuarios/" +username + "/" + password
+                url: "https://proyecto-arsw.herokuapp.com/usuarios/" + username + "/" + password
             };
             axios.request(options).then(function (response) {
-                if (response.data){
+                if (response.data==="cliente"){
+                    window.location.href="/busquedaCanchasClientesLista.html";
+                }
+                if (response.data==="propietario"){
                     window.location.href="/landingPropietarios.html";
                 }
             }).catch(function (error) {
