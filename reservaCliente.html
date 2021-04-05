@@ -38,7 +38,7 @@
         }
     </style>
 
-    <body>
+    <body onload="apiReservaCliente.cargarPagina()">
 		<div class="container">
             <div class="d-flex justify-content-center h-100">
 				<div class="cuadrado">
@@ -53,9 +53,7 @@
 							<h3 id="nombreCancha"><font size=2>Cancha de fútbol 1234567891234</font></h3>
 							<h3 id="precio"></h3>
 							<h3>Detalles</h3>
-							<textarea  cols="35" rows="7" id="descripcion" readonly="readonly">asdsadjasdk</textarea>
-							
-							<button type="button" class="btn btn-success" onclick="apiReservaCliente.cargarPagina('606765b16dad5450b57540a1')" >Cargar</button>
+							<textarea  cols="35" rows="7" id="descripcion" readonly="readonly">asdsadjasdk</textarea>							
 							<h3>Detalles de la reserva:</h3>
 							<h3><font size=4>Fecha reserva:<input type="date" id="fecha"></font></h3>
 							<h3><font size=4>Hora reserva: 

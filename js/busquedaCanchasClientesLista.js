@@ -8,7 +8,7 @@ var apiLandingPropietarios = (function () {
         axios.request(options).then(function (response) {
             response.data.map(function (record) {
                 //callback
-                retornarCachasDeSede(record.nombre,mostrarCanchas);
+                retornarCachasDeSede(record.nombre, mostrarCanchas);
             });
         }).catch(function (error) {
             console.error(error);
@@ -18,26 +18,23 @@ var apiLandingPropietarios = (function () {
     function retornarCachasDeSede(nombre, callback) {
         const options = {
             method: 'GET',
-            url: 'https://proyecto-arsw.herokuapp.com/api/sedes/listar/'+nombre
+            url: 'https://proyecto-arsw.herokuapp.com/api/sedes/listar/' + nombre
         };
         axios.request(options).then(function (response) {
             response.data.map(function (record) {
-                canchas.push(record.titulo);
+                canchas.push(record);
             });
             callback(nombre);
         }).catch(function (error) {
             console.error(error);
         });
     }
-    return {
-        busquedaCanchasClientesLista: busquedaCanchasClientesLista
-    };
-    //callback
-    function mostrarCanchas(nombre){
-        var canchasSedes= "";
 
-        canchas.map((cancha)=>{
-            canchasSedes=canchasSedes.concat("<li><a class='dropdown-item' href='#'>"+cancha+"</a></li>");
+    function mostrarCanchas(nombre) {
+        var canchasSedes = "";
+
+        canchas.map((cancha) => {
+            canchasSedes = canchasSedes.concat(`<li><a class='dropdown-item' href='reservaCliente.html?id=${cancha.id}'>${cancha.titulo}</a></li>`);
         });
         $("#sedes").append(
             "<button type='button' href='vistaSedeCliente.html' class='btn btn-danger b1 d-block'>" + nombre + "</button>" +
@@ -46,7 +43,7 @@ var apiLandingPropietarios = (function () {
             "<span class='visually-hidden'>Toggle Dropdown</span>" +
             "</button>" +
             "<ul class='dropdown-menu'>" +
-            canchasSedes+
+            canchasSedes +
             "<li>" +
             " <hr class='dropdown-divider'>" +
             "</li>" +
@@ -54,13 +51,10 @@ var apiLandingPropietarios = (function () {
         );
 
         canchas = [];
-    } 
+    }
 
+    return {
+        busquedaCanchasClientesLista: busquedaCanchasClientesLista
+    };
 
-}
-
-
-
-
-
-)();
+})();

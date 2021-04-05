@@ -1,14 +1,16 @@
 var cancha;
 var apiReservaCliente = (function () {
-    function cargarPagina(id) {
+    function cargarPagina() {
 		//var id = document.getElementById("contenido").text;
-		//console.log(id);
+		const valores = window.location.search;
+		const urlParams = new URLSearchParams(valores);
+		var id = urlParams.get('id');
 		const options={
 				method: 'GET',
                 url: "https://proyecto-arsw.herokuapp.com/api/canchas/listar/"+ id
 		};
 		axios.request(options).then(function (response) {
-                //console.log(response.data);
+                //console.log(response.data.sede);
 				cancha = response.data;
                 document.getElementById("titulo").textContent = response.data.sede;
 				document.getElementById("nombreCancha").textContent = response.data.titulo;
