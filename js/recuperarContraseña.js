@@ -10,10 +10,10 @@ var apiRecuperarContraseña = (function () {
 				
 			}
 			//window.location.href = "login.html";
-			/*
+			
             const options = {
                 method: 'GET',
-                url: "https://proyecto-arsw.herokuapp.com/usuarios/" + username + "/" + password
+                url: "https://proyecto-arsw.herokuapp.com/usuarios/actualizar/" + username 
             };
             axios.request(options).then(function (response) {
                 console.log(response);
@@ -25,7 +25,7 @@ var apiRecuperarContraseña = (function () {
                 }
             }).catch(function (error) {
                 console.error(error);
-            });*/
+            });
 
         }
     }
