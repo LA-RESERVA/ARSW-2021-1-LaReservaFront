@@ -7,18 +7,19 @@ var apiLogin = (function () {
         } else {
             const options = {
                 method: 'GET',
-                url: "https://proyecto-arsw.herokuapp.com/usuarios/" + username + "/" + password
+                url: "https://back-la-reserva.herokuapp.com/usuarios/login?usr=" + username + "&pwd=" + password
             };
             axios.request(options).then(function (response) {
                 console.log(response);
-                if (response.data === "cliente") {
+                if (response.data.rol === "cliente") {
                     window.location.href = "/busquedaCanchasClientesLista.html";
                 }
-                if (response.data === "propietario") {
+                if (response.data.rol === "propietario") {
                     window.location.href = "/landingPropietarios.html";
                 }
+                
             }).catch(function (error) {
-                console.error(error);
+                alert("Este usuario no se encuentra registrado")
             });
 
         }

@@ -3,34 +3,34 @@ var apiLandingPropietarios = (function () {
     function busquedaCanchasClientesLista() {
         const options = {
             method: 'GET',
-            url: "https://proyecto-arsw.herokuapp.com/api/sedes/listar"
+            url: "https://back-la-reserva.herokuapp.com/sedes/listar"
         };
         axios.request(options).then(function (response) {
             response.data.map(function (record) {
                 //callback
-                retornarCachasDeSede(record.nombre, mostrarCanchas);
+                retornarCachasDeSede(record.id,record.nombre, mostrarCanchas);
             });
         }).catch(function (error) {
             console.error(error);
         });
 
     }
-    function retornarCachasDeSede(nombre, callback) {
+    function retornarCachasDeSede(id, nombre, callback) {
         const options = {
             method: 'GET',
-            url: 'https://proyecto-arsw.herokuapp.com/api/sedes/listar/' + nombre
+            url: 'https://back-la-reserva.herokuapp.com/canchas/sede?id=' + id
         };
         axios.request(options).then(function (response) {
             response.data.map(function (record) {
                 canchas.push(record);
             });
-            callback(nombre);
+            callback(id,nombre);
         }).catch(function (error) {
             console.error(error);
         });
     }
 
-    function mostrarCanchas(nombre) {
+    function mostrarCanchas(id, nombre) {
         var canchasSedes = "";
 
         canchas.map((cancha) => {
