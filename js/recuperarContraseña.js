@@ -13,7 +13,7 @@ var apiRecuperarContraseña = (function () {
 			
             const options = {
                 method: 'GET',
-                url: "https://proyecto-arsw.herokuapp.com/usuarios/actualizar/" + username 
+                url: "https://back-la-reserva.herokuapp.com/usuarios/actualizar/" + username 
             };
             axios.request(options).then(function (response) {
                 console.log(response);

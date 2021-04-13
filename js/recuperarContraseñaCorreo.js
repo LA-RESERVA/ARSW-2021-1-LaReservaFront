@@ -7,7 +7,7 @@ var apiRecuperarContraseña = (function () {
 			//window.location.href = "recuperarContraseña.html";
 			const options={
 				method: 'GET',
-                url: "https://proyecto-arsw.herokuapp.com/usuarios/send-email/"+ usuario
+                url: "https://back-la-reserva.herokuapp.com/usuarios/send-email/"+ usuario
 			};
 			
             axios.request(options).then(function (response) {

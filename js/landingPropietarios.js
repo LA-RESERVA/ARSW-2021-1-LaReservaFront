@@ -2,7 +2,7 @@ var apiLandingPropietarios = (function () {
     function busquedaCanchasClientesLista() {
         const options = {
             method: 'GET',
-            url: "https://proyecto-arsw.herokuapp.com/api/sedes/listar"
+            url: "https://back-la-reserva.herokuapp.com/sedes/listar"
         };
         axios.request(options).then(function (response) {
             response.data.map(function (record) {

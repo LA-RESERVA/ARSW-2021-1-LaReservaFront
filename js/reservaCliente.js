@@ -7,7 +7,7 @@ var apiReservaCliente = (function () {
 		var id = urlParams.get('id');
 		const options={
 				method: 'GET',
-                url: "https://proyecto-arsw.herokuapp.com/api/canchas/listar/"+ id
+                url: "https://back-la-reserva.herokuapp.com/canchas/listar/"+ id
 		};
 		axios.request(options).then(function (response) {
                 //console.log(response.data.sede);

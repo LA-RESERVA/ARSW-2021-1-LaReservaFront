@@ -7,7 +7,7 @@ var apiEditarPublicacionesCancha = (function () {
 		var id = urlParams.get('id');
 		const options={
 				method: 'GET',
-                url: "https://proyecto-arsw.herokuapp.com/api/canchas/listar/"+ id
+                url: "https://back-la-reserva.herokuapp.com/canchas?id="+ id
 		};
 		axios.request(options).then(function (response) {
                 //console.log(response.data.sede);
@@ -15,13 +15,12 @@ var apiEditarPublicacionesCancha = (function () {
 				console.log(cancha.titulo);
                 document.getElementById("titulo").textContent = response.data.sede;
 				document.getElementById("nombreCancha").textContent = response.data.titulo;
-				document.getElementById("precio").textContent = "Precio: $"+response.data.precio;
-				document.getElementById("descripcion").textContent = response.data.descripcion;
+				document.getElementById("precio").textContent = "Precio: $"+response.data.precio
 				
 
 				document.getElementById("title").value = response.data.titulo;
 				document.getElementById("precioHora").value = response.data.precio;
-				document.getElementById("description").textContent = response.data.descripcion;
+
             }).catch(function (error) {
                 console.error(error);
             });
@@ -50,20 +49,18 @@ var apiEditarPublicacionesCancha = (function () {
                 "horainicio": inicio, "horafin": fin})
                     .then(res => {
                         alert("Se ha realizado la reserva.");
-                        //window.location.href="/login.html";
                     }
                     );
     }
 	
 	
 	function actualizarCancha() {
-		//console.log(document.getElementById("description").value);
+
 		
-		var url = "https://proyecto-arsw.herokuapp.com/api/canchas/actualizar/"+cancha.id;
+		var url = "https://back-la-reserva.herokuapp.com/canchas/actualizar/"+cancha.id;
 		axios.put(url, {
 		  id: cancha.id,
 		  titulo: document.getElementById("title").value,
-		  descripcion: document.getElementById("description").value,
 		  foto: cancha.foto,
 		  estado: cancha.estado,
 		  sede: cancha.sede,
@@ -85,7 +82,7 @@ var apiEditarPublicacionesCancha = (function () {
 	function eliminarCancha() {
 		//console.log(document.getElementById("description").value);
 		
-		var url = "https://proyecto-arsw.herokuapp.com/api/canchas/eliminar/"+cancha.id;
+		var url = "https://back-la-reserva.herokuapp.com/canchas/eliminar/"+cancha.id;
 		axios.delete(url)
 		.then((response) => {
 		  alert("La cancha se ha eliminado satisfactoriamente");
