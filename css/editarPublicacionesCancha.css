@@ -13,19 +13,27 @@
 }
 .cuadrado {
 	  float: right;
-      height: 80%;
+      height: 85%;
       margin-top: 5%;
       margin-bottom: auto;
 	  margin-right: 10%;	
-      width: 700px;
+      width: 800px;
       border: black 3px solid;
       background-color: rgba(235, 235, 235, 0.62);
       
 }
+.izq{
+	float: left;
+}
+#derecha{
+	float: right;
+	padding-right: 40px;
+}
+
 #vistaPrevia{
 
 }
-#titulo{
+#title{
 	padding-top: 15px;
 }
 #form{
@@ -38,7 +46,7 @@
 	text-aling: center;
 	line-height: 36px;
 }
-#descripcion{
+#description{
 	width: 92%;
 }
 .editar {

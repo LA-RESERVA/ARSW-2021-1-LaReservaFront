@@ -13,7 +13,7 @@
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script type="text/javascript" src="js/recuperarContraseña.js"></script>
+        <script type="text/javascript" src="js/editarPublicacionesCancha.js"></script>
         <link href="./css/editarPublicacionesCancha.css" rel="stylesheet">
     </head>
     <style>
@@ -27,7 +27,7 @@
         }
     </style>
 
-    <body>
+    <body onload="apiEditarPublicacionesCancha.cargarPagina()">
             <div class="cuadrado">
 					
                     <div class="input-group" >
@@ -38,21 +38,28 @@
 							<img src="./css/img/Logo.png" style="width: 100px; height: 100px;">
 						</div>
                     </div>
-
+					
+					<div id="derecha">
+							<h3 id="nombreCancha"><font size=2>Cancha de fútbol 1234567891234</font></h3>
+							<h3 id="precio"></h3>
+							<h3>Detalles</h3>
+							<textarea  cols="35" rows="7" id="descripcion" readonly="readonly">asdsadjasdk</textarea>							
+							<h3>Detalles de la reserva:</h3>
+							<h3><font size=4>Fecha reserva:<input type="date" id="fecha"></font></h3>
+							<h3><font size=4>Hora reserva: 
+							<select class="browser-default custom-select" id="nuevo">
+								<option selected="" >Hora</option>
+								<option value="1">8:00 - 9:00</option>
+								<option value="2">9:00 - 10:00</option>
+								<option value="3">13:00 - 14:00</option>
+							 </select></font></h3>
+							<div id="reservar">
+								<button type="button" class="btn btn-success" onclick="apiEditarPublicacionesCancha.hacerReserva()">Reservar</button>
+							</div>
+					</div>
                         
 
-                    <center>
-						<div id="info">
-							<h3>Selecciona una fecha para tu reserva</h3>
-						</div>
-						
-                        <div id="enroll">
-                            <form action="login.html">
-                                <button type="button" class="btn btn-success" onclick="apiRecuperarContraseña.recuperarContraseña()" href="login.html">Cambiar contraseña</button>
-                            </form>
-                        </div>
-
-                </center>
+                    
             </div>
 			
 			<div class="editar">
@@ -71,17 +78,26 @@
 							<div id="form">
 								<div class="pw">
 									<div class="casillas">
-										<input id="titulo" placeholder="titulo" style="height: 35px; width: 92%;" class="centrado" type="text"required/>
+										<div class="izq">
+											<h3><font size=4>Nombre de la cancha:</h3>
+										</div>
+										<input id="title" placeholder="titulo" style="height: 35px; width: 92%;" class="centrado" type="text"required/>
 									</div>
 								</div>
 								<div class="pw">
+									<div class="izq">
+											<h3><font size=4>Precio por hora:</h3>
+										</div>
 									<div class="casillas">
 										<input id="precioHora" placeholder="Precio hora" style="height: 35px; width: 92%;" class="centrado" type="number" required/>
 									</div>
 								</div>
 								<div class="pw">
+									<div class="izq">
+											<h3><font size=4>Descripción:</h3>
+										</div>
 									<div class="casillas">
-										<textarea id="descripcion"  cols="80" rows="10" placeholder="Descripción">Descripción</textarea>
+										<textarea id="description"  cols="80" rows="10" placeholder="Descripción">Descripción</textarea>
 									</div>
 								</div>
 								<div class="pw">
@@ -95,8 +111,8 @@
 							</div>
                 </center>
 				<div id="enroll">
-                    <button type="button" class="btn btn-success" onclick="apiRecuperarContraseña.recuperarContraseña()" href="login.html">Actualizar</button>
-					<button type="button" class="btn btn-danger" onclick="apiRecuperarContraseña.recuperarContraseña()" href="login.html" >Eliminar</button>
+                    <button type="button" class="btn btn-success" onclick="apiEditarPublicacionesCancha.actualizarCancha()" href="login.html">Actualizar</button>
+					<button type="button" class="btn btn-danger" onclick="apiEditarPublicacionesCancha.eliminarCancha()" href="login.html" >Eliminar</button>
 								
                 </div>
 				
