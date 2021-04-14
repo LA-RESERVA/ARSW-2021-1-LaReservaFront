@@ -1,3 +1,4 @@
+var attemp = 0;
 var apiLogin = (function () {
     function autenticarUsuario() {
         var username = document.getElementById("username").value;
@@ -11,7 +12,7 @@ var apiLogin = (function () {
             };
             axios.request(options).then(function (response) {
                 console.log(response);
-                if (response.data.rol === "cliente") {
+				if (response.data.rol === "cliente") {
                     window.location.href = "/busquedaCanchasClientesLista.html";
                 }
                 if (response.data.rol === "propietario") {
@@ -19,12 +20,14 @@ var apiLogin = (function () {
                 }
                 
             }).catch(function (error) {
-                alert("Este usuario no se encuentra registrado")
+                alert("Este usuario no se encuentra registrado o la contraseña es incorrecta");
             });
 
         }
     }
+	
+
     return {
-        autenticarUsuario: autenticarUsuario
+        autenticarUsuario: autenticarUsuario,
     }
 })();

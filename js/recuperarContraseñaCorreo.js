@@ -7,14 +7,16 @@ var apiRecuperarContraseña = (function () {
 			//window.location.href = "recuperarContraseña.html";
 			const options={
 				method: 'GET',
-                url: "https://back-la-reserva.herokuapp.com/usuarios/send-email/"+ usuario
+                url: "https://back-la-reserva.herokuapp.com/usuarios/send-email/"+usuario
 			};
 			
             axios.request(options).then(function (response) {
                 console.log(response);
                 if (response.data === null) {
-					alert("El correo no se encuentra registrado.");
-                }
+					alert("El usuario no se encuentra registrado.");
+                }else{
+					alert("Se ha enviado un correo para cambiar la contraseña");
+				}
             }).catch(function (error) {
                 console.error(error);
             });
