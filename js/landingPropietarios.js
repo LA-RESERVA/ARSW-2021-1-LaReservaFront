@@ -1,10 +1,11 @@
 var apiLandingPropietarios = (function () {
     var canchas = [];
+	var id;
     function busquedaCanchasClientesLista() {
 
         const valores = window.location.search;
         const urlParams = new URLSearchParams(valores);
-        var id = urlParams.get('id');
+        id = urlParams.get('id');
 
         const options = {
             method: 'GET',
@@ -21,6 +22,11 @@ var apiLandingPropietarios = (function () {
         }).catch(function (error) {
             console.error(error);
         });
+
+    }
+	
+	function reload() {
+        window.location.href="editarPublicacionesSede.html?id="+id;
 
     }
     function retornarCachasDeSede(id, nombre, callback) {
@@ -62,7 +68,8 @@ var apiLandingPropietarios = (function () {
     }
 
     return {
-        busquedaCanchasClientesLista: busquedaCanchasClientesLista
+        busquedaCanchasClientesLista: busquedaCanchasClientesLista,
+		reload: reload
     };
 
 })();
