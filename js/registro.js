@@ -33,7 +33,6 @@ var apiclient = (function () {
 
 
     function registrarPropietario() {
-        var url = "https://back-la-reserva.herokuapp.com/usuarios/registrar";
         var nombre = document.getElementById("nom").value;
         var apellidos = document.getElementById("ap").value;
         var username = document.getElementById("usrname").value;
@@ -42,15 +41,13 @@ var apiclient = (function () {
         var documento = document.getElementById("doc").value;
         var password = document.getElementById("pw").value;
         var pwdconfirmacion = document.getElementById("confpw").value;
-
+		
         if (nombre === "" || apellidos === "" || username === "" || celular === "" || email === "" || documento === "" || password === "" || pwdconfirmacion === "") {
             alert("Todos los campos son requeridos.");
         } else {
             if (password !== pwdconfirmacion) {
-                alert("Las contaseñas no coinciden.");
+                alert("Las contaseñas con coinciden.");
             } else {
-                console.log(password);
-
                 axios.post(url, {
                     "nombre": nombre, "apellidos": apellidos, "username": username,
                     "contrasena": password, "celular": celular, "email": email, "rol": "propietario",
