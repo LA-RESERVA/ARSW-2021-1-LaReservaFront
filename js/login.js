@@ -1,5 +1,6 @@
 var apiLogin = (function () {
     function autenticarUsuario() {
+
         var username = document.getElementById("username").value;
         var password = document.getElementById("contraseña").value;
         if (username === "" || password === "") {
@@ -15,7 +16,7 @@ var apiLogin = (function () {
                     window.location.href = "/busquedaCanchasClientesLista.html";
                 }
                 if (response.data.rol === "propietario") {
-                    window.location.href = "/landingPropietarios.html";
+                    window.location.href = "/landingPropietarios.html?id="+response.data.id;
                 }
                 
             }).catch(function (error) {
