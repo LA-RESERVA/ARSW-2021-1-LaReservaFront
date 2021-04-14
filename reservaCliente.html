@@ -1,5 +1,13 @@
 <html>
-
+	<head>
+		<meta charset="UTF-8">
+		<title>Login</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link href="./css/vistaSedeCliente.css" rel="stylesheet">
+	</head>
     <head>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
 
@@ -40,6 +48,7 @@
 
     <body onload="apiReservaCliente.cargarPagina()">
 		<div class="container">
+
             <div class="d-flex justify-content-center h-100">
 				<div class="cuadrado">
 						
@@ -50,10 +59,8 @@
 						</div>
 
 						<div id="derecha">
-							<h3 id="nombreCancha"><font size=2>Cancha de fútbol 1234567891234</font></h3>
-							<h3 id="precio"></h3>
-							<h3>Detalles</h3>
-							<textarea  cols="35" rows="7" id="descripcion" readonly="readonly">asdsadjasdk</textarea>							
+							<h3 id="nombreCancha"><font size=2>Cancha de fútbol</font></h3>
+							<h3 id="precio"></h3>						
 							<h3>Detalles de la reserva:</h3>
 							<h3><font size=4>Fecha reserva:<input type="date" id="fecha"></font></h3>
 							<h3><font size=4>Hora reserva: 
@@ -61,7 +68,19 @@
 								<option selected="" >Hora</option>
 								<option value="1">8:00 - 9:00</option>
 								<option value="2">9:00 - 10:00</option>
-								<option value="3">13:00 - 14:00</option>
+								<option value="3">10:00 - 11:00</option>
+								<option value="4">11:00 - 12:00</option>
+								<option value="5">12:00 - 13:00</option>
+								<option value="6">13:00 - 14:00</option>
+								<option value="7">14:00 - 15:00</option>
+								<option value="8">15:00 - 16:00</option>
+								<option value="9">16:00 - 17:00</option>
+								<option value="10">17:00 - 18:00</option>
+								<option value="11">18:00 - 19:00</option>
+								<option value="12">19:00 - 20:00</option>
+								<option value="13">20:00 - 21:00</option>
+								<option value="14">21:00 - 22:00</option>
+								<option value="15">22:00 - 23:00</option>
 							 </select></font></h3>
 							<div id="reservar">
 								<button type="button" class="btn btn-success" onclick="apiReservaCliente.hacerReserva()">Reservar</button>
