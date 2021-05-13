@@ -5,6 +5,9 @@ var apiReservaCliente = (function () {
 		const valores = window.location.search;
 		const urlParams = new URLSearchParams(valores);
 		var id = urlParams.get('id');
+		var usuario = urlParams.get('usuario');
+		var cancha = urlParams.get('sede');
+
 		const options = {
 			method: 'GET',
 			url: "https://back-la-reserva.herokuapp.com/canchas?id=" + id
@@ -23,8 +26,6 @@ var apiReservaCliente = (function () {
 	}
 
 	function hacerReserva() {
-		//var id = document.getElementById("contenido").text;
-		//console.log(id);
 		console.log(document.getElementById("nuevo").value);
 		var inicio;
 		var fin;

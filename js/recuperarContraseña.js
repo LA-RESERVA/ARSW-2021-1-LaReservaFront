@@ -4,7 +4,6 @@ var apiRecuperarContraseña = (function () {
 	
 		
     function recuperarContraseña() {
-		console.log(username);
 		
         var password = document.getElementById("contraseña").value;
         var confirm = document.getElementById("confirmarContraseña").value;
@@ -17,7 +16,7 @@ var apiRecuperarContraseña = (function () {
 			}else{
 				const options = {
                 method: 'PUT',
-                url: "https://back-la-reserva.herokuapp.com/usuarios/actualizar?password="+password+"&username="+username
+                url: "https://back-la-reserva.herokuapp.com/usuarios/actualizar?password="+generateHash(password).toString()+"&username="+username
 				};
 				axios.request(options).then(function (response) {
 					alert("Contraseña cambiada satisfactoriamente")
@@ -39,6 +38,14 @@ var apiRecuperarContraseña = (function () {
 		username = urlParams.get('username');
 		console.log(username);
     }
+
+	function generateHash(password) {
+		var plainText = password;
+		var hashText = CryptoJS.SHA256(plainText);
+		return hashText;
+		}
+		
+		
     return {
         recuperarContraseña: recuperarContraseña,
 		cargarPagina: cargarPagina

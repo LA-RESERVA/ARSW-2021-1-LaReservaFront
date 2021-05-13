@@ -19,7 +19,7 @@ var apiclient = (function () {
             } else {
                 axios.post(url, {
                     "nombre": nombre, "apellidos": apellidos, "username": username,
-                    "contrasena": password, "celular": celular, "email": email, "rol": "cliente",
+                    "contrasena": generateHash(password).toString(), "celular": celular, "email": email, "rol": "cliente",
                     "documento": documento
                 })
                     .then(res => {
@@ -50,7 +50,7 @@ var apiclient = (function () {
             } else {
                 axios.post(url, {
                     "nombre": nombre, "apellidos": apellidos, "username": username,
-                    "contrasena": password, "celular": celular, "email": email, "rol": "propietario",
+                    "contrasena": generateHash(password).toString(), "celular": celular, "email": email, "rol": "propietario",
                     "documento": documento
                 })
                     .then(res => {
@@ -60,6 +60,12 @@ var apiclient = (function () {
                     );
             }
         }
+    }
+
+    function generateHash(password) {
+        var plainText = password;
+        var hashText = CryptoJS.SHA256(plainText);
+        return hashText;
     }
     return {
         registrarCliente: registrarCliente, registrarPropietario:registrarPropietario
