@@ -5,8 +5,8 @@ var apiReservaCliente = (function () {
 		const valores = window.location.search;
 		const urlParams = new URLSearchParams(valores);
 		var id = urlParams.get('id');
-		var usuario = urlParams.get('usuario');
 		var cancha = urlParams.get('sede');
+		var usuario = urlParams.get('usuario');
 
 		const options = {
 			method: 'GET',
@@ -18,7 +18,7 @@ var apiReservaCliente = (function () {
 			cancha = response.data;
 			document.getElementById("nombreCancha").textContent = response.data.titulo;
 			document.getElementById("precio").textContent = "Precio: $" + response.data.precio;
-		
+
 
 		}).catch(function (error) {
 			console.error(error);
@@ -26,7 +26,6 @@ var apiReservaCliente = (function () {
 	}
 
 	function hacerReserva() {
-		console.log(document.getElementById("nuevo").value);
 		var inicio;
 		var fin;
 		const horarios = {
@@ -42,27 +41,48 @@ var apiReservaCliente = (function () {
 		for (const property in horarios) {
 			var a = property;
 			var b = horarios[property]
-			if(a==="Hora"){
+			if (a === "Hora") {
 				alert("Porfavor ingrese una hora")
-				break; 
+				break;
 
 			}
-			if (document.getElementById("nuevo").value == b) {
-				var inicio = a; 
+			if (document.getElementById("hora").value == b) {
+				var inicio = a;
 
 			}
 		}
-		var fecha = document.getElementById("fecha").value;
-		var url = "https://back-la-reserva.herokuapp.com/horarios/crear";
-		axios.post(url, {
-			"cancha": cancha.id, "dia": fecha,
-			"hora": inicio, "estado": true
-		})
-			.then(res => {
-				alert("Se ha realizado la reserva.");
-				//window.location.href="/login.html";
-			}
-			);
+
+		const valores = window.location.search;
+		const urlParams = new URLSearchParams(valores);
+		var cancha = urlParams.get('sede');
+		var usuario = urlParams.get('usuario');
+		var dia = document.getElementById("fecha").value;
+		console.log(cancha, usuario, dia, inicio);
+	
+	
+		if (dia === "") {
+			alert("Debes seleccionar la fecha y hora de tu reserva.");
+		}else {
+			const options = {
+				method: 'POST',
+				url: "https://back-la-reserva.herokuapp.com/reservas/crear",
+				data:
+				{
+					'cancha': cancha,
+					'usuario': usuario,
+					'dia': dia,
+					'hora': inicio
+				}
+
+			};
+
+			axios.request(options).then(function (response) {
+				console.log(response.data);
+			}).catch(function (error) {
+				alert("La cancha ya está reservada en este horario.");
+			});
+
+		}
 	}
 
 	return {

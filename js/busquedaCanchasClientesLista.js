@@ -37,7 +37,7 @@ var apiLandingPropietarios = (function () {
         var canchasSedes = "";
 
         canchas.map((cancha) => {
-            canchasSedes = canchasSedes.concat(`<li><a class='dropdown-item' href='reservaCliente.html?id=${cancha.id}&usuario=${id}&sede=${nombre}'>${cancha.titulo}</a></li>`);
+            canchasSedes = canchasSedes.concat(`<li><a class='dropdown-item' href='reservaCliente.html?id=${cancha.id}&usuario=${id}&sede=${cancha.id}'>${cancha.titulo}</a></li>`);
         });
         $("#sedes").append(
             "<button type='button' href='vistaSedeCliente.html' class='btn btn-danger b1 d-block'>" + nombre + "</button>" +
